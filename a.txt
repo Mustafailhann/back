@@ -285,30 +285,13 @@ ls -C $@
 }
 
 
-leaf(){
-	if [ $# -ne 0 ]
-	then
-		for item in "$@" ; do leafpad "$item" 2>/dev/null & c; done;
-	else
-		leafpad $1 2>/dev/null & c
-	fi
-}
-
-leafn(){
-	if [ $# -ne 0 ]
-	then
-		for item in "$@" ; do leafpad "$item" 2>/dev/null &; done;
-	else
-		leafpad $1 2>/dev/null & 
-	fi
-}
 
 42gcc(){
 gcc -Wall -Wextra -Werror $@ && c && ./a.out
 }
 
 42gccres(){
-gcc -Wall -Wextra -Werror $@ && ./a.out > res.txt && rm a.out && leaf res.txt
+gcc -Wall -Wextra -Werror $@ && ./a.out > res.txt && rm a.out && open res.txt
 }
 
 norm(){
